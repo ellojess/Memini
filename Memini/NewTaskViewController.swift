@@ -10,12 +10,42 @@ import Foundation
 import UIKit
 
 class NewTaskViewController: UIViewController {
+    
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 12
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        stackView.distribution = .fill
+        return stackView
+    }()
+    
+    let nameTextField: UITextField = {
+        let nameTextField = UITextField()
+        let bottomLine = UIView()
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "Name your project",
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        nameTextField.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
+        nameTextField.textColor = .white
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        nameTextField.addSubview(bottomLine)
+        
+        bottomLine.translatesAutoresizingMaskIntoConstraints = false
+        bottomLine.backgroundColor = .white
+        bottomLine.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: -2).isActive = true
+        bottomLine.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
+        bottomLine.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
+        bottomLine.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
+        return nameTextField
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .orange
         setupNavBar()
+//        self.view.addSubview(nameTextField)
+        setupView()
     }
     
     func setupNavBar() {
@@ -33,12 +63,21 @@ class NewTaskViewController: UIViewController {
     @objc func saveTask() {
 //        let nextVC = HomeViewController()
 //        self.navigationController?.pushViewController(nextVC, animated: true)
-        
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc func cancelAdd() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setupView() {
+        view.addSubview(stackView)
+        stackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.7).isActive = true
+        stackView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.05).isActive = true
+        stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        stackView.addArrangedSubview(nameTextField)
     }
     
 
