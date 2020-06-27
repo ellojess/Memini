@@ -15,7 +15,32 @@ class NewTaskViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .orange
+        setupNavBar()
     }
+    
+    func setupNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .automatic
+        self.title = "New Project"
+        
+        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.saveTask))
+        navigationItem.rightBarButtonItem = saveButton
+        
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelAdd))
+        self.navigationItem.leftBarButtonItem = cancelButton
+    }
+    
+    @objc func saveTask() {
+//        let nextVC = HomeViewController()
+//        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func cancelAdd() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
 
 }
