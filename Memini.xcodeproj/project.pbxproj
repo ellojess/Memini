@@ -1,0 +1,632 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		735D1BF324A6C208007E1BC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF224A6C208007E1BC9 /* AppDelegate.swift */; };
+		735D1BF524A6C208007E1BC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF424A6C208007E1BC9 /* SceneDelegate.swift */; };
+		735D1BF724A6C208007E1BC9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF624A6C208007E1BC9 /* HomeViewController.swift */; };
+		735D1BFD24A6C208007E1BC9 /* Memini.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BFB24A6C208007E1BC9 /* Memini.xcdatamodeld */; };
+		735D1BFF24A6C209007E1BC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 735D1BFE24A6C209007E1BC9 /* Assets.xcassets */; };
+		735D1C0224A6C209007E1BC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735D1C0024A6C209007E1BC9 /* LaunchScreen.storyboard */; };
+		735D1C0D24A6C209007E1BC9 /* MeminiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1C0C24A6C209007E1BC9 /* MeminiTests.swift */; };
+		735D1C1824A6C209007E1BC9 /* MeminiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1C1724A6C209007E1BC9 /* MeminiUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		735D1C0924A6C209007E1BC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 735D1BE724A6C208007E1BC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 735D1BEE24A6C208007E1BC9;
+			remoteInfo = Memini;
+		};
+		735D1C1424A6C209007E1BC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 735D1BE724A6C208007E1BC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 735D1BEE24A6C208007E1BC9;
+			remoteInfo = Memini;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		735D1BEF24A6C208007E1BC9 /* Memini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		735D1BF224A6C208007E1BC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		735D1BF424A6C208007E1BC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		735D1BF624A6C208007E1BC9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		735D1BFC24A6C208007E1BC9 /* Memini.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memini.xcdatamodel; sourceTree = "<group>"; };
+		735D1BFE24A6C209007E1BC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		735D1C0124A6C209007E1BC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		735D1C0324A6C209007E1BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		735D1C0824A6C209007E1BC9 /* MeminiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeminiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		735D1C0C24A6C209007E1BC9 /* MeminiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeminiTests.swift; sourceTree = "<group>"; };
+		735D1C0E24A6C209007E1BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		735D1C1324A6C209007E1BC9 /* MeminiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeminiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		735D1C1724A6C209007E1BC9 /* MeminiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeminiUITests.swift; sourceTree = "<group>"; };
+		735D1C1924A6C209007E1BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		735D1BEC24A6C208007E1BC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735D1C0524A6C209007E1BC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735D1C1024A6C209007E1BC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		730E5D6824A6C4A8002BDA58 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		730E5D6924A6C4BB002BDA58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				735D1C0024A6C209007E1BC9 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		730E5D6A24A6C4C4002BDA58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				735D1BFB24A6C208007E1BC9 /* Memini.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		730E5D6B24A6C4F9002BDA58 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				735D1BFE24A6C209007E1BC9 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		735D1BE624A6C208007E1BC9 = {
+			isa = PBXGroup;
+			children = (
+				735D1BF124A6C208007E1BC9 /* Memini */,
+				735D1C0B24A6C209007E1BC9 /* MeminiTests */,
+				735D1C1624A6C209007E1BC9 /* MeminiUITests */,
+				735D1BF024A6C208007E1BC9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		735D1BF024A6C208007E1BC9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				735D1BEF24A6C208007E1BC9 /* Memini.app */,
+				735D1C0824A6C209007E1BC9 /* MeminiTests.xctest */,
+				735D1C1324A6C209007E1BC9 /* MeminiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		735D1BF124A6C208007E1BC9 /* Memini */ = {
+			isa = PBXGroup;
+			children = (
+				735D1BF224A6C208007E1BC9 /* AppDelegate.swift */,
+				735D1BF424A6C208007E1BC9 /* SceneDelegate.swift */,
+				735D1C0324A6C209007E1BC9 /* Info.plist */,
+				730E5D6A24A6C4C4002BDA58 /* Model */,
+				730E5D6924A6C4BB002BDA58 /* View */,
+				730E5D6824A6C4A8002BDA58 /* Controller */,
+				735D1BF624A6C208007E1BC9 /* HomeViewController.swift */,
+				730E5D6B24A6C4F9002BDA58 /* Supporting Files */,
+			);
+			path = Memini;
+			sourceTree = "<group>";
+		};
+		735D1C0B24A6C209007E1BC9 /* MeminiTests */ = {
+			isa = PBXGroup;
+			children = (
+				735D1C0C24A6C209007E1BC9 /* MeminiTests.swift */,
+				735D1C0E24A6C209007E1BC9 /* Info.plist */,
+			);
+			path = MeminiTests;
+			sourceTree = "<group>";
+		};
+		735D1C1624A6C209007E1BC9 /* MeminiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				735D1C1724A6C209007E1BC9 /* MeminiUITests.swift */,
+				735D1C1924A6C209007E1BC9 /* Info.plist */,
+			);
+			path = MeminiUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		735D1BEE24A6C208007E1BC9 /* Memini */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 735D1C1C24A6C209007E1BC9 /* Build configuration list for PBXNativeTarget "Memini" */;
+			buildPhases = (
+				735D1BEB24A6C208007E1BC9 /* Sources */,
+				735D1BEC24A6C208007E1BC9 /* Frameworks */,
+				735D1BED24A6C208007E1BC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Memini;
+			productName = Memini;
+			productReference = 735D1BEF24A6C208007E1BC9 /* Memini.app */;
+			productType = "com.apple.product-type.application";
+		};
+		735D1C0724A6C209007E1BC9 /* MeminiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 735D1C1F24A6C209007E1BC9 /* Build configuration list for PBXNativeTarget "MeminiTests" */;
+			buildPhases = (
+				735D1C0424A6C209007E1BC9 /* Sources */,
+				735D1C0524A6C209007E1BC9 /* Frameworks */,
+				735D1C0624A6C209007E1BC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				735D1C0A24A6C209007E1BC9 /* PBXTargetDependency */,
+			);
+			name = MeminiTests;
+			productName = MeminiTests;
+			productReference = 735D1C0824A6C209007E1BC9 /* MeminiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		735D1C1224A6C209007E1BC9 /* MeminiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 735D1C2224A6C209007E1BC9 /* Build configuration list for PBXNativeTarget "MeminiUITests" */;
+			buildPhases = (
+				735D1C0F24A6C209007E1BC9 /* Sources */,
+				735D1C1024A6C209007E1BC9 /* Frameworks */,
+				735D1C1124A6C209007E1BC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				735D1C1524A6C209007E1BC9 /* PBXTargetDependency */,
+			);
+			name = MeminiUITests;
+			productName = MeminiUITests;
+			productReference = 735D1C1324A6C209007E1BC9 /* MeminiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		735D1BE724A6C208007E1BC9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Jessica Trinh";
+				TargetAttributes = {
+					735D1BEE24A6C208007E1BC9 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					735D1C0724A6C209007E1BC9 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 735D1BEE24A6C208007E1BC9;
+					};
+					735D1C1224A6C209007E1BC9 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 735D1BEE24A6C208007E1BC9;
+					};
+				};
+			};
+			buildConfigurationList = 735D1BEA24A6C208007E1BC9 /* Build configuration list for PBXProject "Memini" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 735D1BE624A6C208007E1BC9;
+			productRefGroup = 735D1BF024A6C208007E1BC9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				735D1BEE24A6C208007E1BC9 /* Memini */,
+				735D1C0724A6C209007E1BC9 /* MeminiTests */,
+				735D1C1224A6C209007E1BC9 /* MeminiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		735D1BED24A6C208007E1BC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735D1C0224A6C209007E1BC9 /* LaunchScreen.storyboard in Resources */,
+				735D1BFF24A6C209007E1BC9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735D1C0624A6C209007E1BC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735D1C1124A6C209007E1BC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		735D1BEB24A6C208007E1BC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735D1BF724A6C208007E1BC9 /* HomeViewController.swift in Sources */,
+				735D1BF324A6C208007E1BC9 /* AppDelegate.swift in Sources */,
+				735D1BFD24A6C208007E1BC9 /* Memini.xcdatamodeld in Sources */,
+				735D1BF524A6C208007E1BC9 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735D1C0424A6C209007E1BC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735D1C0D24A6C209007E1BC9 /* MeminiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735D1C0F24A6C209007E1BC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735D1C1824A6C209007E1BC9 /* MeminiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		735D1C0A24A6C209007E1BC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 735D1BEE24A6C208007E1BC9 /* Memini */;
+			targetProxy = 735D1C0924A6C209007E1BC9 /* PBXContainerItemProxy */;
+		};
+		735D1C1524A6C209007E1BC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 735D1BEE24A6C208007E1BC9 /* Memini */;
+			targetProxy = 735D1C1424A6C209007E1BC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		735D1C0024A6C209007E1BC9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				735D1C0124A6C209007E1BC9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		735D1C1A24A6C209007E1BC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		735D1C1B24A6C209007E1BC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		735D1C1D24A6C209007E1BC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95G24KHR68;
+				INFOPLIST_FILE = Memini/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jessica-trinh.Memini";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		735D1C1E24A6C209007E1BC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95G24KHR68;
+				INFOPLIST_FILE = Memini/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jessica-trinh.Memini";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		735D1C2024A6C209007E1BC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95G24KHR68;
+				INFOPLIST_FILE = MeminiTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jessica-trinh.MeminiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memini.app/Memini";
+			};
+			name = Debug;
+		};
+		735D1C2124A6C209007E1BC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95G24KHR68;
+				INFOPLIST_FILE = MeminiTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jessica-trinh.MeminiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memini.app/Memini";
+			};
+			name = Release;
+		};
+		735D1C2324A6C209007E1BC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95G24KHR68;
+				INFOPLIST_FILE = MeminiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jessica-trinh.MeminiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Memini;
+			};
+			name = Debug;
+		};
+		735D1C2424A6C209007E1BC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95G24KHR68;
+				INFOPLIST_FILE = MeminiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jessica-trinh.MeminiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Memini;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		735D1BEA24A6C208007E1BC9 /* Build configuration list for PBXProject "Memini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735D1C1A24A6C209007E1BC9 /* Debug */,
+				735D1C1B24A6C209007E1BC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		735D1C1C24A6C209007E1BC9 /* Build configuration list for PBXNativeTarget "Memini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735D1C1D24A6C209007E1BC9 /* Debug */,
+				735D1C1E24A6C209007E1BC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		735D1C1F24A6C209007E1BC9 /* Build configuration list for PBXNativeTarget "MeminiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735D1C2024A6C209007E1BC9 /* Debug */,
+				735D1C2124A6C209007E1BC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		735D1C2224A6C209007E1BC9 /* Build configuration list for PBXNativeTarget "MeminiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735D1C2324A6C209007E1BC9 /* Debug */,
+				735D1C2424A6C209007E1BC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		735D1BFB24A6C208007E1BC9 /* Memini.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				735D1BFC24A6C208007E1BC9 /* Memini.xcdatamodel */,
+			);
+			currentVersion = 735D1BFC24A6C208007E1BC9 /* Memini.xcdatamodel */;
+			path = Memini.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 735D1BE724A6C208007E1BC9 /* Project object */;
+}
