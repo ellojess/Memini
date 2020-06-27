@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730E5D6D24A6C61C002BDA58 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D6C24A6C61C002BDA58 /* NewTaskViewController.swift */; };
+		730E5D6F24A6C685002BDA58 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D6E24A6C685002BDA58 /* ToDoListViewController.swift */; };
+		730E5D7124A6C6B7002BDA58 /* NewTaskItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D7024A6C6B7002BDA58 /* NewTaskItemViewController.swift */; };
 		735D1BF324A6C208007E1BC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF224A6C208007E1BC9 /* AppDelegate.swift */; };
 		735D1BF524A6C208007E1BC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF424A6C208007E1BC9 /* SceneDelegate.swift */; };
 		735D1BF724A6C208007E1BC9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF624A6C208007E1BC9 /* HomeViewController.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		730E5D6C24A6C61C002BDA58 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
+		730E5D6E24A6C685002BDA58 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
+		730E5D7024A6C6B7002BDA58 /* NewTaskItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskItemViewController.swift; sourceTree = "<group>"; };
 		735D1BEF24A6C208007E1BC9 /* Memini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		735D1BF224A6C208007E1BC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		735D1BF424A6C208007E1BC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +85,10 @@
 		730E5D6824A6C4A8002BDA58 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				735D1BF624A6C208007E1BC9 /* HomeViewController.swift */,
+				730E5D6C24A6C61C002BDA58 /* NewTaskViewController.swift */,
+				730E5D6E24A6C685002BDA58 /* ToDoListViewController.swift */,
+				730E5D7024A6C6B7002BDA58 /* NewTaskItemViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -136,7 +146,6 @@
 				730E5D6A24A6C4C4002BDA58 /* Model */,
 				730E5D6924A6C4BB002BDA58 /* View */,
 				730E5D6824A6C4A8002BDA58 /* Controller */,
-				735D1BF624A6C208007E1BC9 /* HomeViewController.swift */,
 				730E5D6B24A6C4F9002BDA58 /* Supporting Files */,
 			);
 			path = Memini;
@@ -291,8 +300,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				735D1BF724A6C208007E1BC9 /* HomeViewController.swift in Sources */,
+				730E5D7124A6C6B7002BDA58 /* NewTaskItemViewController.swift in Sources */,
+				730E5D6D24A6C61C002BDA58 /* NewTaskViewController.swift in Sources */,
 				735D1BF324A6C208007E1BC9 /* AppDelegate.swift in Sources */,
 				735D1BFD24A6C208007E1BC9 /* Memini.xcdatamodeld in Sources */,
+				730E5D6F24A6C685002BDA58 /* ToDoListViewController.swift in Sources */,
 				735D1BF524A6C208007E1BC9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
