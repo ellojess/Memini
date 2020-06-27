@@ -16,13 +16,18 @@ class HomeViewController: UIViewController {
         tableView.rowHeight = 90
         return tableView
     }()
+    
+    var projects: [Project] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        view.backgroundColor = .red
         setupNavBar()
         setupTableView()
+        tableView.register(HomeTableCell.self, forCellReuseIdentifier: "cell")
     }
     
     func setupNavBar() {
@@ -66,7 +71,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+          let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableCell
         cell.selectionStyle = .default
         
           return cell
@@ -83,6 +88,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             print("delete pressed")
         }
     }
+    
+
     
     
 }
