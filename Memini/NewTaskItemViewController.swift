@@ -20,15 +20,15 @@ class NewTaskItemViewController: UIViewController {
         return stackView
     }()
     
-//    let titleLabel: UILabel = {
-//        let titleLabel = UILabel()
-//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//        titleLabel.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
-//        titleLabel.textColor = .black
-//        titleLabel.text = "Title"
-//        return titleLabel
-//    }()
-
+    //    let titleLabel: UILabel = {
+    //        let titleLabel = UILabel()
+    //        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    //        titleLabel.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
+    //        titleLabel.textColor = .black
+    //        titleLabel.text = "Title"
+    //        return titleLabel
+    //    }()
+    
     let titleSection: UITextField = {
         let textField = UITextField()
         let bottomLine = UIView()
@@ -42,7 +42,7 @@ class NewTaskItemViewController: UIViewController {
         titleLabel.text = "Title"
         
         textField.attributedPlaceholder = NSAttributedString(string: "e.g. Read 2 chapters of The Illiad",
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         textField.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
         textField.textColor = .white
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -68,11 +68,11 @@ class NewTaskItemViewController: UIViewController {
         completeByLabel.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
         completeByLabel.textColor = .black
         completeByLabel.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: 5).isActive = true
-
+        
         completeByLabel.text = "Complete By Date"
         
         textField.attributedPlaceholder = NSAttributedString(string: "mm/dd/yyyy",
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         textField.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
         textField.textColor = .white
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -86,11 +86,9 @@ class NewTaskItemViewController: UIViewController {
         bottomLine.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         return textField
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .green
         setupNavBar()
         setupView()
     }
@@ -109,25 +107,25 @@ class NewTaskItemViewController: UIViewController {
     }
     
     func setupView() {
-    
-    view.addSubview(stackView)
-    stackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.7).isActive = true
-    stackView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.43).isActive = true
-    stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-
-    self.view.backgroundColor = UIColor(red:0.49, green:0.84, blue:0.87, alpha:1.0)
-    
-    stackView.addArrangedSubview(titleSection)
-    titleSection.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
-    titleSection.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
-    stackView.setCustomSpacing(20, after: titleSection)
-    
-    stackView.addArrangedSubview(dateSection)
-    dateSection.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
-    dateSection.heightAnchor.constraint(equalToConstant: 70).isActive = true
-    
-
+        view.addSubview(stackView)
+        stackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.7).isActive = true
+        stackView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.43).isActive = true
+        stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        self.view.backgroundColor = UIColor(red:0.49, green:0.84, blue:0.87, alpha:1.0)
+        
+        stackView.addArrangedSubview(titleSection)
+        titleSection.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
+        titleSection.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        
+        stackView.setCustomSpacing(20, after: titleSection)
+        
+        stackView.addArrangedSubview(dateSection)
+        dateSection.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
+        dateSection.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        
+        
     }
 }
