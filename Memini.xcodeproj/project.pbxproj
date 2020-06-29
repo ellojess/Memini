@@ -11,7 +11,6 @@
 		730E5D6F24A6C685002BDA58 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D6E24A6C685002BDA58 /* ToDoListViewController.swift */; };
 		730E5D7124A6C6B7002BDA58 /* NewTaskItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D7024A6C6B7002BDA58 /* NewTaskItemViewController.swift */; };
 		730E5D7324A72FD5002BDA58 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D7224A72FD5002BDA58 /* UIView+Layout.swift */; };
-		730E5D7524A75F47002BDA58 /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D7424A75F47002BDA58 /* HomeTableCell.swift */; };
 		730E5D7724A7653D002BDA58 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D7624A7653D002BDA58 /* Project.swift */; };
 		735D1BF324A6C208007E1BC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF224A6C208007E1BC9 /* AppDelegate.swift */; };
 		735D1BF524A6C208007E1BC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF424A6C208007E1BC9 /* SceneDelegate.swift */; };
@@ -21,6 +20,8 @@
 		735D1C0224A6C209007E1BC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735D1C0024A6C209007E1BC9 /* LaunchScreen.storyboard */; };
 		735D1C0D24A6C209007E1BC9 /* MeminiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1C0C24A6C209007E1BC9 /* MeminiTests.swift */; };
 		735D1C1824A6C209007E1BC9 /* MeminiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1C1724A6C209007E1BC9 /* MeminiUITests.swift */; };
+		73A6BCEE24AA99140046FCEA /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A6BCED24AA99140046FCEA /* HomeTableCell.swift */; };
+		73A6BCF024AA99A30046FCEA /* ButtonGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A6BCEF24AA99A30046FCEA /* ButtonGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,6 @@
 		730E5D6E24A6C685002BDA58 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		730E5D7024A6C6B7002BDA58 /* NewTaskItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskItemViewController.swift; sourceTree = "<group>"; };
 		730E5D7224A72FD5002BDA58 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
-		730E5D7424A75F47002BDA58 /* HomeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableCell.swift; sourceTree = "<group>"; };
 		730E5D7624A7653D002BDA58 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		735D1BEF24A6C208007E1BC9 /* Memini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		735D1BF224A6C208007E1BC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +61,8 @@
 		735D1C1324A6C209007E1BC9 /* MeminiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeminiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		735D1C1724A6C209007E1BC9 /* MeminiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeminiUITests.swift; sourceTree = "<group>"; };
 		735D1C1924A6C209007E1BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73A6BCED24AA99140046FCEA /* HomeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableCell.swift; sourceTree = "<group>"; };
+		73A6BCEF24AA99A30046FCEA /* ButtonGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				735D1C0024A6C209007E1BC9 /* LaunchScreen.storyboard */,
-				730E5D7424A75F47002BDA58 /* HomeTableCell.swift */,
+				73A6BCED24AA99140046FCEA /* HomeTableCell.swift */,
+				73A6BCEF24AA99A30046FCEA /* ButtonGrid.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -311,13 +314,14 @@
 				730E5D7324A72FD5002BDA58 /* UIView+Layout.swift in Sources */,
 				735D1BF724A6C208007E1BC9 /* HomeViewController.swift in Sources */,
 				730E5D7124A6C6B7002BDA58 /* NewTaskItemViewController.swift in Sources */,
+				73A6BCEE24AA99140046FCEA /* HomeTableCell.swift in Sources */,
 				730E5D7724A7653D002BDA58 /* Project.swift in Sources */,
+				73A6BCF024AA99A30046FCEA /* ButtonGrid.swift in Sources */,
 				730E5D6D24A6C61C002BDA58 /* NewTaskViewController.swift in Sources */,
 				735D1BF324A6C208007E1BC9 /* AppDelegate.swift in Sources */,
 				735D1BFD24A6C208007E1BC9 /* Memini.xcdatamodeld in Sources */,
 				730E5D6F24A6C685002BDA58 /* ToDoListViewController.swift in Sources */,
 				735D1BF524A6C208007E1BC9 /* SceneDelegate.swift in Sources */,
-				730E5D7524A75F47002BDA58 /* HomeTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
