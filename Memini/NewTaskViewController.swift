@@ -12,11 +12,6 @@ import SwiftUI
 
 class NewTaskViewController: UIViewController {
     
-    /*let buttons: UIHostingController = {
-        let buttons = UIHostingController(rootView: ContentView())
-        return buttons
-    }()*/
-    
     let buttonContainer: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +23,7 @@ class NewTaskViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 12
         stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.distribution = .fill
+        stackView.distribution = .fillProportionally
         return stackView
     }()
     
@@ -36,14 +31,14 @@ class NewTaskViewController: UIViewController {
         let nameTextField = UITextField()
         let bottomLine = UIView()
         nameTextField.attributedPlaceholder = NSAttributedString(string: "Name your project",
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         nameTextField.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
-        nameTextField.textColor = .white
+        nameTextField.textColor = .black
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.addSubview(bottomLine)
         
         bottomLine.translatesAutoresizingMaskIntoConstraints = false
-        bottomLine.backgroundColor = .white
+        bottomLine.backgroundColor = .black
         bottomLine.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: -2).isActive = true
         bottomLine.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
         bottomLine.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
@@ -53,10 +48,8 @@ class NewTaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
         setupNavBar()
-//        self.view.addSubview(nameTextField)
         setupView()
     }
     
@@ -83,24 +76,42 @@ class NewTaskViewController: UIViewController {
     }
     
     func setupView() {
+//        view.addSubview(stackView)
+        view.addSubview(nameTextField)
         view.addSubview(buttonContainer)
-        view.addSubview(stackView)
-        stackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.7).isActive = true
-        stackView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.05).isActive = true
-        stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
-        stackView.addArrangedSubview(nameTextField)
-        
-        let buttonGrid = UIHostingController(rootView: ContentView())
-        
-//        addChild(buttonGrid)
-////        buttonGrid.view.frame = frame
-//        view.addSubview(buttonGrid.view)
-//        buttonGrid.didMove(toParent: self)
-        
-        buttonContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+        NSLayoutConstraint.activate([
+            nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            nameTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            nameTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 20),
+            nameTextField.heightAnchor.constraint(equalToConstant: 20.0),
+            
+            
+//            buttonContainer.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10)
+            buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100)
+
+
+            
+        ])
+//        stackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.7).isActive = true
+//        stackView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.05).isActive = true
+//        stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+//        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//
+////        stackView.addArrangedSubview(nameTextField)
+//        stackView.addSubview(nameTextField)
+//        nameTextField.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
+//        nameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+////        nameTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+////        nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+////        nameTextField.bottomAnchor.constraint(equalTo: buttonContainer.topAnchor, constant: 20)
+//
+//        let buttonGrid = UIHostingController(rootView: ContentView())
+////        stackView.addArrangedSubview(buttonContainer)
+//        stackView.addSubview(buttonContainer)
+//        buttonContainer.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 90).isActive = true
+//        buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
        
         let buttonView = UIHostingController(rootView: ContentView())
         buttonView.view.frame = buttonContainer.bounds
@@ -108,7 +119,7 @@ class NewTaskViewController: UIViewController {
         buttonView.didMove(toParent: self)
         
     }
-    
 
 
 }
+

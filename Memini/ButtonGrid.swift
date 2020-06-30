@@ -65,8 +65,10 @@ struct ContentView: View {
     
     var body: some View {
         
+        
         ZStack (alignment: .bottom) {
-            Color.black.edgesIgnoringSafeArea(.all)
+//            Color.black.edgesIgnoringSafeArea(.all)
+            Color.clear.edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 12) {
                 
