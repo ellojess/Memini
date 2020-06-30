@@ -8,8 +8,20 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class NewTaskViewController: UIViewController {
+    
+    /*let buttons: UIHostingController = {
+        let buttons = UIHostingController(rootView: ContentView())
+        return buttons
+    }()*/
+    
+    let buttonContainer: UIView = {
+       let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -71,6 +83,7 @@ class NewTaskViewController: UIViewController {
     }
     
     func setupView() {
+        view.addSubview(buttonContainer)
         view.addSubview(stackView)
         stackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.7).isActive = true
         stackView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.05).isActive = true
@@ -78,6 +91,22 @@ class NewTaskViewController: UIViewController {
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         stackView.addArrangedSubview(nameTextField)
+        
+        let buttonGrid = UIHostingController(rootView: ContentView())
+        
+//        addChild(buttonGrid)
+////        buttonGrid.view.frame = frame
+//        view.addSubview(buttonGrid.view)
+//        buttonGrid.didMove(toParent: self)
+        
+        buttonContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+       
+        let buttonView = UIHostingController(rootView: ContentView())
+        buttonView.view.frame = buttonContainer.bounds
+        buttonContainer.addSubview(buttonView.view)
+        buttonView.didMove(toParent: self)
+        
     }
     
 

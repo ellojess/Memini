@@ -72,8 +72,8 @@ struct ContentView: View {
                 
                 HStack {
                     Spacer()
-                    Text(env.display).foregroundColor(.white)
-                        .font(.system(size: 64))
+                    //Text(env.display).foregroundColor(.white)
+                        //.font(.system(size: 64))
                 }.padding()
                 
                 
