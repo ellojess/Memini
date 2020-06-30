@@ -24,6 +24,8 @@ class ToDoListViewController: UIViewController {
         view.backgroundColor = .white
         setupNavBar()
         setupView()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     func setupNavBar() {
@@ -60,21 +62,23 @@ class ToDoListViewController: UIViewController {
 //            // delete item at indexPath
 //        }
 //
-//        let share = UITableViewRowAction(style: .normal, title: "Disable") { (action, indexPath) in
-//            // share item at indexPath
-//        }
+////        let share = UITableViewRowAction(style: .normal, title: "Disable") { (action, indexPath) in
+////            // share item at indexPath
+////        }
 //
 //        share.backgroundColor = UIColor.blue
 //
-////        return [delete, share]
-//    }
+//        return delete
 
+//        return [delete, share]
+    //}
+    
     
 }
 
 extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
