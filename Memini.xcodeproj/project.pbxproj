@@ -12,6 +12,7 @@
 		730E5D7124A6C6B7002BDA58 /* NewTaskItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D7024A6C6B7002BDA58 /* NewTaskItemViewController.swift */; };
 		730E5D7324A72FD5002BDA58 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D7224A72FD5002BDA58 /* UIView+Layout.swift */; };
 		730E5D7724A7653D002BDA58 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E5D7624A7653D002BDA58 /* Project.swift */; };
+		734A16A824ABF10900C31B1B /* ToDoItemsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A16A724ABF10900C31B1B /* ToDoItemsTableCell.swift */; };
 		735D1BF324A6C208007E1BC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF224A6C208007E1BC9 /* AppDelegate.swift */; };
 		735D1BF524A6C208007E1BC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF424A6C208007E1BC9 /* SceneDelegate.swift */; };
 		735D1BF724A6C208007E1BC9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D1BF624A6C208007E1BC9 /* HomeViewController.swift */; };
@@ -47,6 +48,7 @@
 		730E5D7024A6C6B7002BDA58 /* NewTaskItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskItemViewController.swift; sourceTree = "<group>"; };
 		730E5D7224A72FD5002BDA58 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		730E5D7624A7653D002BDA58 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		734A16A724ABF10900C31B1B /* ToDoItemsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemsTableCell.swift; sourceTree = "<group>"; };
 		735D1BEF24A6C208007E1BC9 /* Memini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		735D1BF224A6C208007E1BC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		735D1BF424A6C208007E1BC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				735D1C0024A6C209007E1BC9 /* LaunchScreen.storyboard */,
 				73A6BCED24AA99140046FCEA /* HomeTableCell.swift */,
 				73A6BCEF24AA99A30046FCEA /* ButtonGrid.swift */,
+				734A16A724ABF10900C31B1B /* ToDoItemsTableCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				730E5D7324A72FD5002BDA58 /* UIView+Layout.swift in Sources */,
 				735D1BF724A6C208007E1BC9 /* HomeViewController.swift in Sources */,
 				730E5D7124A6C6B7002BDA58 /* NewTaskItemViewController.swift in Sources */,
+				734A16A824ABF10900C31B1B /* ToDoItemsTableCell.swift in Sources */,
 				73A6BCEE24AA99140046FCEA /* HomeTableCell.swift in Sources */,
 				730E5D7724A7653D002BDA58 /* Project.swift in Sources */,
 				73A6BCF024AA99A30046FCEA /* ButtonGrid.swift in Sources */,

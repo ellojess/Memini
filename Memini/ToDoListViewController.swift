@@ -26,6 +26,7 @@ class ToDoListViewController: UIViewController {
         setupView()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        tableView.register(ToDoItemsTableCell.self, forCellReuseIdentifier: "cell")
     }
     
     func setupNavBar() {
@@ -57,23 +58,6 @@ class ToDoListViewController: UIViewController {
         stackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .zero)
     }
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-//            // delete item at indexPath
-//        }
-//
-////        let share = UITableViewRowAction(style: .normal, title: "Disable") { (action, indexPath) in
-////            // share item at indexPath
-////        }
-//
-//        share.backgroundColor = UIColor.blue
-//
-//        return delete
-
-//        return [delete, share]
-    //}
-    
-    
 }
 
 extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -82,7 +66,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemsTableCell
         cell.selectionStyle = .default
         
         return cell
