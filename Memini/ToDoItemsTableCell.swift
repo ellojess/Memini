@@ -59,15 +59,26 @@ class ToDoItemsTableCell: UITableViewCell {
         checkbox.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.12).isActive = true
         checkbox.isHidden = false
         checkbox.isUserInteractionEnabled = true
+        
+//        checkbox.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12.0).isActive = true
+//        checkbox.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//        checkbox.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0).isActive = true
+        
         checkbox.addTarget(self, action: #selector(checkboxTapped), for: .touchDown)
         
+        
+        
         stackView.addArrangedSubview(title)
-//        title.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.70).isActive = true
+        //        title.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.70).isActive = true
         //        title.leadingAnchor.constraint(equalTo: checkbox.rightAnchor, constant: 10).isActive = true
+        
+        
         title.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12.0).isActive = true
-           title.heightAnchor.constraint(equalToConstant: 30).isActive = true
-           title.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12).isActive = true
-           title.rightAnchor.constraint(equalTo: checkbox.rightAnchor, constant: 24).isActive = true
+        title.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//        title.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12).isActive = true
+//        title.rightAnchor.constraint(equalTo: checkbox.rightAnchor, constant: 24).isActive = true
+        title.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: 24).isActive = true
+        title.leftAnchor.constraint(equalTo: checkbox.rightAnchor, constant: 20).isActive = true
         
     }
     
@@ -88,6 +99,13 @@ class ToDoItemsTableCell: UITableViewCell {
         }else{
             self.checkbox.setImage(UIImage(named: "unchecked_checkbox"), for: .normal)
         }
+    }
+    
+    func setUpTitle() {
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        title.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
     
     

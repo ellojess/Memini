@@ -31,7 +31,7 @@ class NewTaskViewController: UIViewController {
         let nameTextField = UITextField()
         let bottomLine = UIView()
         nameTextField.attributedPlaceholder = NSAttributedString(string: "Name your project",
-                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         nameTextField.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
         nameTextField.textColor = .black
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class NewTaskViewController: UIViewController {
         
         bottomLine.translatesAutoresizingMaskIntoConstraints = false
         bottomLine.backgroundColor = .black
-        bottomLine.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: -2).isActive = true
+        bottomLine.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10).isActive = true
         bottomLine.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
         bottomLine.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
         bottomLine.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
@@ -82,7 +82,7 @@ class NewTaskViewController: UIViewController {
         NSLayoutConstraint.activate([
             nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             nameTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            nameTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 20),
+            nameTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             nameTextField.heightAnchor.constraint(equalToConstant: 20.0),
             
             buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
