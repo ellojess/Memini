@@ -29,7 +29,7 @@ class HomeTableCell: UITableViewCell {
         return label
     }()
     
-    var project: Project? {
+    var project: Project2? {
         didSet {
             title.text = project?.title
             subtitle.text = project?.subtitle

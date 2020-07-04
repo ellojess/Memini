@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Project {
+struct Project2 {
     let title: String
     let subtitle: String
 }
