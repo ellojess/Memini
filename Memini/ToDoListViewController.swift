@@ -14,10 +14,32 @@ class ToDoListViewController: UIViewController {
     let segmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["In Process", "Completed"])
         sc.selectedSegmentIndex = 0
+        sc.addTarget(self, action: #selector(pickedSegmentController), for: .valueChanged)
         return sc
     }()
     
+    @objc fileprivate func pickedSegmentController() {
+        print(segmentedControl.selectedSegmentIndex)
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            allLists = inProgressItems
+        case 1:
+            allLists = completedItems
+        default:
+            allLists = inProgressItems
+        }
+        
+        tableView.reloadData()
+    }
+    
     let tableView = UITableView(frame: .zero, style: .plain)
+    
+    let inProgressItems = ["eat", "walk"]
+    
+    let completedItems = ["sleep", "yawn", "KICK"]
+    
+    lazy var allLists = inProgressItems
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,13 +83,13 @@ class ToDoListViewController: UIViewController {
 
 extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        return allLists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemsTableCell
         cell.selectionStyle = .default
-        
+        cell.textLabel?.text = allLists[indexPath.row]
         return cell
     }
     

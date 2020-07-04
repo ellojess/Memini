@@ -13,7 +13,7 @@ import SwiftUI
 class NewTaskViewController: UIViewController {
     
     let buttonContainer: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -31,7 +31,7 @@ class NewTaskViewController: UIViewController {
         let nameTextField = UITextField()
         let bottomLine = UIView()
         nameTextField.attributedPlaceholder = NSAttributedString(string: "Name your project",
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         nameTextField.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
         nameTextField.textColor = .black
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +45,7 @@ class NewTaskViewController: UIViewController {
         bottomLine.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         return nameTextField
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -66,8 +66,8 @@ class NewTaskViewController: UIViewController {
     }
     
     @objc func saveTask() {
-//        let nextVC = HomeViewController()
-//        self.navigationController?.pushViewController(nextVC, animated: true)
+        //        let nextVC = HomeViewController()
+        //        self.navigationController?.pushViewController(nextVC, animated: true)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -76,50 +76,28 @@ class NewTaskViewController: UIViewController {
     }
     
     func setupView() {
-//        view.addSubview(stackView)
         view.addSubview(nameTextField)
         view.addSubview(buttonContainer)
-
+        
         NSLayoutConstraint.activate([
             nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             nameTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             nameTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 20),
             nameTextField.heightAnchor.constraint(equalToConstant: 20.0),
             
-            
-//            buttonContainer.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10)
             buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100)
-
-
             
         ])
-//        stackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.7).isActive = true
-//        stackView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.05).isActive = true
-//        stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-//        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-//
-////        stackView.addArrangedSubview(nameTextField)
-//        stackView.addSubview(nameTextField)
-//        nameTextField.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
-//        nameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-////        nameTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-////        nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-////        nameTextField.bottomAnchor.constraint(equalTo: buttonContainer.topAnchor, constant: 20)
-//
-//        let buttonGrid = UIHostingController(rootView: ContentView())
-////        stackView.addArrangedSubview(buttonContainer)
-//        stackView.addSubview(buttonContainer)
-//        buttonContainer.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 90).isActive = true
-//        buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-       
+        
         let buttonView = UIHostingController(rootView: ContentView())
         buttonView.view.frame = buttonContainer.bounds
         buttonContainer.addSubview(buttonView.view)
         buttonView.didMove(toParent: self)
         
     }
-
-
+    
+    
+    
 }
 

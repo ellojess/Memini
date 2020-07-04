@@ -25,7 +25,8 @@ class ToDoItemsTableCell: UITableViewCell {
         label.font = UIFont(name: "AvenirNext-Bold", size: 20)
         label.textColor = UIColor(red:0.29, green:0.29, blue:0.29, alpha:1.0)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
+//        label.textAlignment = .center
+        label.contentMode = .scaleAspectFit
         return label
     }()
     
@@ -46,11 +47,11 @@ class ToDoItemsTableCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-     
+        
         contentView.addSubview(stackView)
         
         stackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.85).isActive = true
-        stackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1.0).isActive = true
+        stackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.75).isActive = true
         stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         
@@ -61,7 +62,12 @@ class ToDoItemsTableCell: UITableViewCell {
         checkbox.addTarget(self, action: #selector(checkboxTapped), for: .touchDown)
         
         stackView.addArrangedSubview(title)
-        title.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.80).isActive = true
+//        title.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.70).isActive = true
+        //        title.leadingAnchor.constraint(equalTo: checkbox.rightAnchor, constant: 10).isActive = true
+        title.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12.0).isActive = true
+           title.heightAnchor.constraint(equalToConstant: 30).isActive = true
+           title.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12).isActive = true
+           title.rightAnchor.constraint(equalTo: checkbox.rightAnchor, constant: 24).isActive = true
         
     }
     
