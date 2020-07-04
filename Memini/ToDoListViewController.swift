@@ -50,8 +50,7 @@ class ToDoListViewController: UIViewController {
         paddedStackView.layoutMargins = .init(top: 12, left: 12, bottom: 6, right: 12)
         paddedStackView.isLayoutMarginsRelativeArrangement = true
         
-        let stackView = UIStackView(arrangedSubviews: [
-            paddedStackView, tableView])
+        let stackView = UIStackView(arrangedSubviews: [paddedStackView, tableView])
         stackView.axis = .vertical
         
         view.addSubview(stackView)
@@ -70,6 +69,10 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .default
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
