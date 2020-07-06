@@ -7,8 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct Project2 {
-    let title: String
-    let subtitle: String
+    var title: String
+//    let subtitle: String
+    
+    init(title: String) {
+        self.title = title
+    }
+    
 }

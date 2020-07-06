@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
+        
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -17,7 +17,13 @@ class HomeViewController: UIViewController {
         return tableView
     }()
     
-    var projects: [Project] = [] {
+//    var projects: [Project] = [] {
+//        didSet {
+//            tableView.reloadData()
+//        }
+//    }
+    
+    var projects: [Project2] = [] {
         didSet {
             tableView.reloadData()
         }

@@ -32,7 +32,7 @@ class HomeTableCell: UITableViewCell {
     var project: Project2? {
         didSet {
             title.text = project?.title
-            subtitle.text = project?.subtitle
+//            subtitle.text = project?.subtitle
         }
     }
     

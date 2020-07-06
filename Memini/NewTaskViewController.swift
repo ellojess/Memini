@@ -12,6 +12,8 @@ import SwiftUI
 
 class NewTaskViewController: UIViewController {
     
+    var project: Project2!
+    
     let buttonContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +29,7 @@ class NewTaskViewController: UIViewController {
         return stackView
     }()
     
-    let nameTextField: UITextField = {
+    var nameTextField: UITextField = {
         let nameTextField = UITextField()
         let bottomLine = UIView()
         nameTextField.attributedPlaceholder = NSAttributedString(string: "Name your project",
@@ -90,6 +92,11 @@ class NewTaskViewController: UIViewController {
             
         ])
         
+        func updateWithDetails() {
+            nameTextField.text = ""
+            
+        }
+        
         let buttonView = UIHostingController(rootView: ContentView())
         buttonView.view.frame = buttonContainer.bounds
         buttonContainer.addSubview(buttonView.view)
@@ -97,7 +104,21 @@ class NewTaskViewController: UIViewController {
         
     }
     
-    
-    
+
 }
 
+extension NewTaskViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard nameTextField === nameTextField else {
+            return
+        }
+        project.title = nameTextField.text ?? ""
+    }
+}
