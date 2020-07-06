@@ -14,6 +14,8 @@ class NewTaskViewController: UIViewController {
     
     var project: Project2!
     
+    var delegate: HomeViewController?
+    
     let buttonContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -71,9 +73,11 @@ class NewTaskViewController: UIViewController {
         //        let nextVC = HomeViewController()
         //        self.navigationController?.pushViewController(nextVC, animated: true)
         
+        
         guard  let titleText = nameTextField.text, !titleText.isEmpty else {
             return
         }
+        delegate?.save(name: titleText, hasManyTasks: true, color: "green")
         
         self.navigationController?.popViewController(animated: true)
     }

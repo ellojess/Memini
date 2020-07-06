@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeViewController: UIViewController {
         
@@ -17,23 +18,50 @@ class HomeViewController: UIViewController {
         return tableView
     }()
     
+    var projects: [NSManagedObject] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
 //    var projects: [Project] = [] {
 //        didSet {
 //            tableView.reloadData()
 //        }
 //    }
     
-    var projects: [Project2] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+//    var projects: [Project2] = [] {
+//        didSet {
+//            tableView.reloadData()
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
         setupTableView()
         tableView.register(HomeTableCell.self, forCellReuseIdentifier: "cell")
+        tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest <NSManagedObject> (entityName: "Project")
+        do {
+            projects = try managedContext.fetch(fetchRequest)
+            print("sssss")
+            print(projects)
+        } catch let error as NSError {
+            print(error)
+        }
     }
     
     func setupNavBar() {
@@ -49,6 +77,7 @@ class HomeViewController: UIViewController {
     
     @objc func newTask() {
         let nextVC = NewTaskViewController()
+        nextVC.delegate = self
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -80,7 +109,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableCell
         cell.selectionStyle = .default
         let project = projects[indexPath.row]
-        cell.title.text = project.title
+        cell.title.text = project.value(forKey: "name") as? String
         return cell
     }
     
