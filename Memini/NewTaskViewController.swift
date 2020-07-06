@@ -70,6 +70,11 @@ class NewTaskViewController: UIViewController {
     @objc func saveTask() {
         //        let nextVC = HomeViewController()
         //        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+        guard  let titleText = nameTextField.text, !titleText.isEmpty else {
+            return
+        }
+        
         self.navigationController?.popViewController(animated: true)
     }
     
