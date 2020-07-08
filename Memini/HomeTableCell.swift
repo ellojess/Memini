@@ -41,6 +41,15 @@ class HomeTableCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(title)
         addSubview(subtitle)
+        
+        
+        NSLayoutConstraint.activate([
+//            title.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            title.centerYAnchor.constraint(equalTo: centerYAnchor)
+            
+            title.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            title.topAnchor.constraint(equalTo: centerYAnchor, constant: title.font.lineHeight / 2 * -1)
+        ])
     }
          
     

@@ -11,21 +11,13 @@ import UIKit
 
 class ToDoItemsTableCell: UITableViewCell {
     
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 5
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fill
-        return stackView
-    }()
-    
     let title: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
         label.font = UIFont(name: "AvenirNext-Bold", size: 20)
         label.textColor = UIColor(red:0.29, green:0.29, blue:0.29, alpha:1.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.textAlignment = .center
+        //        label.textAlignment = .center
         label.contentMode = .scaleAspectFit
         return label
     }()
@@ -47,39 +39,7 @@ class ToDoItemsTableCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        contentView.addSubview(stackView)
-        
-        stackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.85).isActive = true
-        stackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.75).isActive = true
-        stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        
-        stackView.addArrangedSubview(checkbox)
-        checkbox.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.12).isActive = true
-        checkbox.isHidden = false
-        checkbox.isUserInteractionEnabled = true
-        
-//        checkbox.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12.0).isActive = true
-//        checkbox.heightAnchor.constraint(equalToConstant: 30).isActive = true
-//        checkbox.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0).isActive = true
-        
-        checkbox.addTarget(self, action: #selector(checkboxTapped), for: .touchDown)
-        
-        
-        
-        stackView.addArrangedSubview(title)
-        //        title.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.70).isActive = true
-        //        title.leadingAnchor.constraint(equalTo: checkbox.rightAnchor, constant: 10).isActive = true
-        
-        
-        title.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12.0).isActive = true
-        title.heightAnchor.constraint(equalToConstant: 30).isActive = true
-//        title.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12).isActive = true
-//        title.rightAnchor.constraint(equalTo: checkbox.rightAnchor, constant: 24).isActive = true
-        title.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: 24).isActive = true
-        title.leftAnchor.constraint(equalTo: checkbox.rightAnchor, constant: 20).isActive = true
-        
+        setUpCell()
     }
     
     @objc func checkboxTapped(){
@@ -101,14 +61,27 @@ class ToDoItemsTableCell: UITableViewCell {
         }
     }
     
-    func setUpTitle() {
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        title.heightAnchor.constraint(equalToConstant: 80).isActive = true
+    func setUpCell() {
+        checkbox.isHidden = false
+        checkbox.isUserInteractionEnabled = true
+        checkbox.addTarget(self, action: #selector(checkboxTapped), for: .touchDown)
+        self.addSubview(checkbox)
+        
+        NSLayoutConstraint.activate([
+            checkbox.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            checkbox.widthAnchor.constraint(equalToConstant: 20),
+            checkbox.heightAnchor.constraint(equalToConstant: 20),
+            checkbox.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+        
+        addTitle()
     }
     
-    
+    func addTitle() {
+        self.addSubview(title)
+        title.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 10).isActive = true
+        title.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

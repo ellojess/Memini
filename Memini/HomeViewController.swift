@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     var projects: [NSManagedObject] = [] {
         didSet {
             tableView.reloadData()
+            print("here")
         }
     }
 
@@ -33,9 +34,6 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        tableView.reloadData()
-        
         super.viewWillAppear(animated)
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -47,8 +45,7 @@ class HomeViewController: UIViewController {
         let fetchRequest = NSFetchRequest <NSManagedObject> (entityName: "Project")
         do {
             projects = try managedContext.fetch(fetchRequest)
-            print("sssss")
-            print(projects)
+            self.tableView.reloadData()
         } catch let error as NSError {
             print(error)
         }
@@ -61,8 +58,6 @@ class HomeViewController: UIViewController {
         
         let newButton = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(self.newTask))
         navigationItem.rightBarButtonItem = newButton
-        
-        
     }
     
     @objc func newTask() {
@@ -87,7 +82,6 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
     }
 
-
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
@@ -104,7 +98,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected item in row \(indexPath.row)")
+        print("selected item name: \(projects[indexPath.row].value(forKey: "name"))")
         let nextView: ToDoListViewController = ToDoListViewController()
         self.navigationController?.pushViewController(nextView, animated: true)
     }

@@ -117,7 +117,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemsTableCell
         cell.selectionStyle = .default
-        cell.textLabel?.text = allLists[indexPath.row]
+        cell.title.text = allLists[indexPath.row]
         return cell
     }
     

@@ -70,15 +70,11 @@ class NewTaskViewController: UIViewController {
     }
     
     @objc func saveTask() {
-        //        let nextVC = HomeViewController()
-        //        self.navigationController?.pushViewController(nextVC, animated: true)
-        
-        
         guard  let titleText = nameTextField.text, !titleText.isEmpty else {
             return
         }
         delegate?.save(name: titleText, hasManyTasks: true, color: "green")
-        
+        delegate?.tableView.reloadData()
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -98,21 +94,17 @@ class NewTaskViewController: UIViewController {
             
             buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100)
-            
         ])
         
         func updateWithDetails() {
             nameTextField.text = ""
-            
         }
         
         let buttonView = UIHostingController(rootView: ContentView())
         buttonView.view.frame = buttonContainer.bounds
         buttonContainer.addSubview(buttonView.view)
         buttonView.didMove(toParent: self)
-        
     }
-    
 
 }
 
@@ -120,7 +112,6 @@ extension NewTaskViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
         return false
     }
     
