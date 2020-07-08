@@ -34,7 +34,34 @@ extension HomeViewController {
         } catch let error as NSError{
             print(error)
         }
+    }
+}
+
+extension ToDoListViewController {
+    
+    func add(belongsToAProject: Bool, dueDate: String, status: Bool, title: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
         
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Task", in: managedContext)!
+        
+        let task = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        task.setValue(belongsToAProject, forKey: "belongsToAProject")
+        task.setValue(dueDate, forKey: "dueDate")
+        task.setValue(status, forKey: "status")
+        task.setValue(title, forKey: "title")
+        
+        do {
+            try managedContext.save()
+            tasks.append(task)
+        } catch let error as NSError{
+            print(error)
+        }
         
     }
+    
 }

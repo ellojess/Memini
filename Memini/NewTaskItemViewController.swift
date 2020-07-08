@@ -11,6 +11,8 @@ import UIKit
 
 class NewTaskItemViewController: UIViewController {
     
+    var delegate: ToDoListViewController?
+    
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -104,6 +106,13 @@ class NewTaskItemViewController: UIViewController {
     
     @objc func saveTask() {
         self.navigationController?.popViewController(animated: true)
+        
+        guard  let titleText = titleSection.text, !titleText.isEmpty else {
+            return
+        }
+//        delegate?.save(name: titleText, hasManyTasks: true, color: "green")
+//        delegate?.add(title: titleText, status: true, dueDate: "today", belongsToAProject: true)
+        delegate?.add(belongsToAProject: true, dueDate: "today", status: true, title: titleText)
     }
     
     func setupView() {

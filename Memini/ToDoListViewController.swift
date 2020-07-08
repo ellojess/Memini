@@ -8,8 +8,15 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ToDoListViewController: UIViewController {
+    
+    var tasks: [NSManagedObject] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     let segmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["In Process", "Completed"])
@@ -51,6 +58,26 @@ class ToDoListViewController: UIViewController {
         tableView.register(ToDoItemsTableCell.self, forCellReuseIdentifier: "cell")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest <NSManagedObject> (entityName: "Task")
+        do {
+            tasks = try managedContext.fetch(fetchRequest)
+            print("ttttttt")
+            print(tasks)
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
     func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
@@ -63,6 +90,7 @@ class ToDoListViewController: UIViewController {
     
     @objc func addTask() {
         let nextVC = NewTaskItemViewController()
+        nextVC.delegate = self
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

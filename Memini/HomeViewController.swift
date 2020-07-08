@@ -23,18 +23,6 @@ class HomeViewController: UIViewController {
             tableView.reloadData()
         }
     }
-    
-//    var projects: [Project] = [] {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
-    
-//    var projects: [Project2] = [] {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +33,8 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        tableView.reloadData()
         
         super.viewWillAppear(animated)
         
