@@ -16,13 +16,10 @@ extension HomeViewController {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
-            
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let entity = NSEntityDescription.entity(forEntityName: "Project", in: managedContext)!
-        
         let project = NSManagedObject(entity: entity, insertInto: managedContext)
         project.setValue(name, forKey: "name")
         project.setValue(hasManyTasks, forKey: "hasManyTasks")
@@ -35,6 +32,9 @@ extension HomeViewController {
             print(error)
         }
     }
+    
+    
+    
 }
 
 extension ToDoListViewController {
@@ -45,9 +45,7 @@ extension ToDoListViewController {
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: managedContext)!
-        
         let task = NSManagedObject(entity: entity, insertInto: managedContext)
         
         task.setValue(belongsToAProject, forKey: "belongsToAProject")

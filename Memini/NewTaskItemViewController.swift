@@ -13,6 +13,8 @@ class NewTaskItemViewController: UIViewController {
     
     var delegate: ToDoListViewController?
     
+    var task: Task!
+    
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -21,15 +23,6 @@ class NewTaskItemViewController: UIViewController {
         stackView.distribution = .equalSpacing
         return stackView
     }()
-    
-    //    let titleLabel: UILabel = {
-    //        let titleLabel = UILabel()
-    //        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-    //        titleLabel.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
-    //        titleLabel.textColor = .black
-    //        titleLabel.text = "Title"
-    //        return titleLabel
-    //    }()
     
     let titleSection: UITextField = {
         let textField = UITextField()
@@ -104,16 +97,16 @@ class NewTaskItemViewController: UIViewController {
         navigationItem.rightBarButtonItem = saveButton
     }
     
+    
     @objc func saveTask() {
-        self.navigationController?.popViewController(animated: true)
-        
         guard  let titleText = titleSection.text, !titleText.isEmpty else {
             return
         }
-//        delegate?.save(name: titleText, hasManyTasks: true, color: "green")
-//        delegate?.add(title: titleText, status: true, dueDate: "today", belongsToAProject: true)
         delegate?.add(belongsToAProject: true, dueDate: "today", status: true, title: titleText)
+        delegate?.tableView.reloadData()
+        self.navigationController?.popViewController(animated: true)
     }
+    
     
     func setupView() {
         
@@ -135,6 +128,20 @@ class NewTaskItemViewController: UIViewController {
         dateSection.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         dateSection.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
-        
+    }
+}
+
+extension NewTaskItemViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard titleSection === titleSection else {
+            return
+        }
+        task.title = titleSection.text ?? ""
     }
 }

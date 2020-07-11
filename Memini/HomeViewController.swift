@@ -20,8 +20,7 @@ class HomeViewController: UIViewController {
     
     var projects: [NSManagedObject] = [] {
         didSet {
-            tableView.reloadData()
-            print("here")
+//            tableView.reloadData()
         }
     }
 
@@ -98,14 +97,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected item name: \(projects[indexPath.row].value(forKey: "name"))")
         let nextView: ToDoListViewController = ToDoListViewController()
         self.navigationController?.pushViewController(nextView, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("delete pressed")
+            
+            CoreDataManager.deleteItem(item: projects[indexPath.row])
+            
+            projects.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+
         }
     }
     

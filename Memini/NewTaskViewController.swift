@@ -12,7 +12,7 @@ import SwiftUI
 
 class NewTaskViewController: UIViewController {
     
-    var project: Project2!
+    var project: Project!
     
     var delegate: HomeViewController?
     
@@ -119,6 +119,6 @@ extension NewTaskViewController: UITextFieldDelegate {
         guard nameTextField === nameTextField else {
             return
         }
-        project.title = nameTextField.text ?? ""
+        project.name = nameTextField.text ?? ""
     }
 }
