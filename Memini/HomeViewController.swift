@@ -96,6 +96,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nextView: ToDoListViewController = ToDoListViewController()
+        nextView.project = projects[indexPath.row] as? Project
         self.navigationController?.pushViewController(nextView, animated: true)
     }
     

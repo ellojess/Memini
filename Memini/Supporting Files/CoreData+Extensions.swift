@@ -38,7 +38,8 @@ extension HomeViewController {
 
 extension ToDoListViewController {
     
-    func add(belongsToAProject: Bool, dueDate: String, status: Bool, title: String) {
+    func add(belongsToAProject: Bool, dueDate: String, status: Bool, title: String, project: Project) {
+    
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -49,7 +50,6 @@ extension ToDoListViewController {
 //        let task = Task(context: managedContext)
         let task = NSManagedObject(entity: entity, insertInto: managedContext)
 
-        let project = Project(context: managedContext)
 //        task.belongsToAProject = belongsToAProject
 //        task.dueDate = dueDate
 //        task.status = status
@@ -62,14 +62,16 @@ extension ToDoListViewController {
 
         
     
-        let tasks = project.mutableSetValue(forKey: #keyPath(Project.tasks))
-        tasks.add(task)
+        let tasks = project.mutableOrderedSetValue(forKeyPath: #keyPath(Project.tasks))
+        let mutableTasks = tasks.mutableCopy() as! NSMutableOrderedSet
+        mutableTasks.add(task)
 //        project.tasks = tasks
         
         
         do {
-            try managedContext.save()
 //            task.append(task)
+            project.tasks = mutableTasks
+            try managedContext.save()
         } catch let error as NSError{
             print(error)
         }

@@ -105,9 +105,10 @@ class NewTaskItemViewController: UIViewController {
         guard  let titleText = titleSection.text, !titleText.isEmpty else {
             return
         }
-        delegate?.add(belongsToAProject: true, dueDate: "today", status: true, title: titleText)
+        delegate?.add(belongsToAProject: true, dueDate: "today", status: true, title: titleText, project: project)
         delegate?.tableView.reloadData()
         self.navigationController?.popViewController(animated: true)
+        
     }
     
     

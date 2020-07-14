@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import UIKit
+import Foundation
 
 enum ColorButton: String {
     
@@ -122,7 +124,48 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-class ButtonGrid: UIImageView {
+//----------------------------------------------------------------------------------
+
+class ButtonGrid: UIViewController {
+    
+    var colorButtons = [UIButton]()
+    
+    override func loadView() {
+        view = UIView()
+        view.backgroundColor = .white
+        
+        let buttonsView = UIView()
+        buttonsView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(buttonsView)
+        
+        NSLayoutConstraint.activate([
+            buttonsView.widthAnchor.constraint(equalToConstant: 750),
+            buttonsView.heightAnchor.constraint(equalToConstant: 320),
+            buttonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonsView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 20),
+            buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20)
+        ])
+        let width = 150
+        let height = 80
+        
+        for row in 0..<3 {
+            for col in 0..<3 {
+                // create a new button and give it a big font size
+                let colorButton = UIButton(type: .system)
+
+                // calculate the frame of this button using its column and row
+                let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
+                colorButton.frame = frame
+
+                // add it to the buttons view
+                buttonsView.addSubview(colorButton)
+
+                // and also to our letterButtons array
+                colorButtons.append(colorButton)
+            }
+        }
+        
+    }
     
     
 }
