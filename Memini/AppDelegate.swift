@@ -11,11 +11,18 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
 
-
+    lazy var coreDataStack = CoreDataStack(modelName: "Task")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        guard let navController = window?.rootViewController as? UINavigationController, let viewController =
+            navController.topViewController as? HomeViewController else {
+                return true
+        }
+        
+        viewController.managedContext = coreDataStack.managedContext
         return true
     }
 

@@ -24,7 +24,6 @@ extension HomeViewController {
         project.setValue(name, forKey: "name")
         project.setValue(hasManyTasks, forKey: "hasManyTasks")
         project.setValue(color, forKey: "color")
-        
         do {
             try managedContext.save()
             projects.append(project)
@@ -45,17 +44,21 @@ extension ToDoListViewController {
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Task", in: managedContext)!
-        let task = NSManagedObject(entity: entity, insertInto: managedContext)
+        let entity = NSEntityDescription.entity(forEntityName: "Project", in: managedContext)!
+        let task = Task(context: managedContext)
+        let project = Project(context: managedContext)
+        task.belongsToAProject = belongsToAProject
+        task.dueDate = dueDate
+        task.status = status
+        task.title = title
         
-        task.setValue(belongsToAProject, forKey: "belongsToAProject")
-        task.setValue(dueDate, forKey: "dueDate")
-        task.setValue(status, forKey: "status")
-        task.setValue(title, forKey: "title")
-        
+    
+        let tasks = project.mutableSetValue(forKey: #keyPath(Project.tasks))
+        tasks.add(task)
+//        project.tasks = tasks
         do {
             try managedContext.save()
-            tasks.append(task)
+            
         } catch let error as NSError{
             print(error)
         }

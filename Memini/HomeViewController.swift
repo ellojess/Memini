@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class HomeViewController: UIViewController {
+    
+    var managedContext: NSManagedObjectContext?
         
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -18,12 +20,8 @@ class HomeViewController: UIViewController {
         return tableView
     }()
     
-    var projects: [NSManagedObject] = [] {
-        didSet {
-//            tableView.reloadData()
-        }
-    }
-
+    var projects: [NSManagedObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()

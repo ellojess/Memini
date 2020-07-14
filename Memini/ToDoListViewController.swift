@@ -119,6 +119,10 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .default
         cell.title.text = allLists[indexPath.row]
         return cell
+        
+//        let task = tasks[indexPath.row]
+//        cell.title.text = task.value(forKey: "title") as? String
+//        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
