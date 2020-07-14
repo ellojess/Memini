@@ -16,6 +16,8 @@ class NewTaskItemViewController: UIViewController {
     
     var task: Task!
     
+    var project: Project!
+    
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical

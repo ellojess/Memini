@@ -43,5 +43,40 @@ class CoreDataStack {
         print("Error: \(error), \(error.userInfo)")
       }
     }
-
+    
+    func fetchPersistentData(completion: @escaping(Result<[Project]>) -> Void) {
+        let fetchRequest: NSFetchRequest<Project> = Project.fetchRequest()
+        
+        do {
+            let allProduces = try managedContext.fetch(fetchRequest)
+            completion(.success(allProduces))
+        } catch {
+            completion(.failure(error))
+        }
+    }
+    
+    func fetchTasks(with request: NSFetchRequest<Task> = Task.fetchRequest(), predicate: NSPredicate? = nil, selectedProject: String, completion: @escaping(Result<[Task]>) -> Void) {
+        
+        let projectPredicate = NSPredicate(format: "project.name == %@", selectedProject)
+        
+        if let addtionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [projectPredicate, addtionalPredicate])
+        } else {
+            request.predicate = projectPredicate
+        }
+        do {
+            let tasks = try managedContext.fetch(request)
+            completion(.success(tasks))
+        } catch {
+            completion(.failure(error))
+        }
+        
+        
+    }
 }
+
+enum Result<T> {
+    case success(T)
+    case failure(Error)
+}
+
