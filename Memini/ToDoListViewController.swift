@@ -155,20 +155,11 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            CoreDataManager.deleteItem(item: tasks[indexPath.row])
-//            tasks.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let selectedTask = self.tasks[indexPath.row]
-            CoreDataManager.deleteItem(item: selectedTask)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
+            CoreDataManager.deleteItem(item: tasks[indexPath.row])
+            tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
