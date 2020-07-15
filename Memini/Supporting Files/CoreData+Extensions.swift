@@ -38,27 +38,40 @@ extension HomeViewController {
 
 extension ToDoListViewController {
     
-    func add(belongsToAProject: Bool, dueDate: String, status: Bool, title: String) {
+    func add(belongsToAProject: Bool, dueDate: String, status: Bool, title: String, project: Project) {
+    
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Project", in: managedContext)!
-        let task = Task(context: managedContext)
-        let project = Project(context: managedContext)
-        task.belongsToAProject = belongsToAProject
-        task.dueDate = dueDate
-        task.status = status
-        task.title = title
+        let entity = NSEntityDescription.entity(forEntityName: "Task", in: managedContext)!
+//        let task = Task(context: managedContext)
+        let task = NSManagedObject(entity: entity, insertInto: managedContext)
+
+//        task.belongsToAProject = belongsToAProject
+//        task.dueDate = dueDate
+//        task.status = status
+//        task.title = title
+        
+        task.setValue(title, forKey: "title")
+        task.setValue(status, forKey: "status")
+        task.setValue(dueDate, forKey: "dueDate")
+        task.setValue(belongsToAProject, forKey: "belongsToAProject")
+
         
     
-        let tasks = project.mutableSetValue(forKey: #keyPath(Project.tasks))
-        tasks.add(task)
+        let tasks = project.mutableOrderedSetValue(forKeyPath: #keyPath(Project.tasks))
+        let mutableTasks = tasks.mutableCopy() as! NSMutableOrderedSet
+        mutableTasks.add(task)
 //        project.tasks = tasks
+        
+        
         do {
+//            task.append(task)
+            project.tasks = mutableTasks
             try managedContext.save()
-            
         } catch let error as NSError{
             print(error)
         }

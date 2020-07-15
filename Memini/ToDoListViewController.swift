@@ -18,6 +18,12 @@ class ToDoListViewController: UIViewController {
         }
     }
     
+    var project: Project! {
+        didSet {
+            self.inProgressItems = project.tasks
+        }
+    }
+    
     let segmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["In Process", "Completed"])
         sc.selectedSegmentIndex = 0
@@ -42,25 +48,37 @@ class ToDoListViewController: UIViewController {
     
     let tableView = UITableView(frame: .zero, style: .plain)
     
-    let inProgressItems = ["eat", "walk"]
+    var inProgressItems: NSOrderedSet! {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
-    let completedItems = ["sleep", "yawn", "KICK"]
+    var completedItems: NSOrderedSet = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     lazy var allLists = inProgressItems
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
         view.backgroundColor = .white
         setupNavBar()
         setupView()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.register(ToDoItemsTableCell.self, forCellReuseIdentifier: "cell")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        tableView.reloadData()
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -91,6 +109,7 @@ class ToDoListViewController: UIViewController {
     @objc func addTask() {
         let nextVC = NewTaskItemViewController()
         nextVC.delegate = self
+        nextVC.project = project
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -111,14 +130,31 @@ class ToDoListViewController: UIViewController {
 
 extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allLists.count
+        
+        var returnValue = 0
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            returnValue = inProgressItems.count
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+            returnValue = completedItems.count
+        }
+        return returnValue
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemsTableCell
-        cell.selectionStyle = .default
-        cell.title.text = allLists[indexPath.row]
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let currentTask = inProgressItems[indexPath.row] as? Task
+//            cell.checkbox == UIImage(imageLiteralResourceName == "unchecked")
+            cell.title.text = currentTask?.title
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+            let currentTask = completedItems[indexPath.row] as? Task
+            cell.title.text = currentTask?.title
+        }
+        
         return cell
+        
         
 //        let task = tasks[indexPath.row]
 //        cell.title.text = task.value(forKey: "title") as? String
