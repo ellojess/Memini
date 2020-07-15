@@ -64,20 +64,17 @@ class ToDoListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
         view.backgroundColor = .white
         setupNavBar()
         setupView()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.register(ToDoItemsTableCell.self, forCellReuseIdentifier: "cell")
-        
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
-        
         tableView.reloadData()
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -85,12 +82,10 @@ class ToDoListViewController: UIViewController {
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let fetchRequest = NSFetchRequest <NSManagedObject> (entityName: "Task")
         do {
             tasks = try managedContext.fetch(fetchRequest)
-            print("ttttttt")
-            print(tasks)
+            self.tableView.reloadData()
         } catch let error as NSError {
             print(error)
         }
@@ -143,31 +138,38 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemsTableCell
+        cell.selectionStyle = .none
         
         if segmentedControl.selectedSegmentIndex == 0 {
             let currentTask = inProgressItems[indexPath.row] as? Task
-//            cell.checkbox == UIImage(imageLiteralResourceName == "unchecked")
             cell.title.text = currentTask?.title
         } else if segmentedControl.selectedSegmentIndex == 1 {
             let currentTask = completedItems[indexPath.row] as? Task
             cell.title.text = currentTask?.title
         }
-        
         return cell
-        
-        
-//        let task = tasks[indexPath.row]
-//        cell.title.text = task.value(forKey: "title") as? String
-//        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
     
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            CoreDataManager.deleteItem(item: tasks[indexPath.row])
+//            tasks.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("delete pressed")
+            let selectedTask = self.tasks[indexPath.row]
+            CoreDataManager.deleteItem(item: selectedTask)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         }
     }
+    
 }
