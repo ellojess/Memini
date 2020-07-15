@@ -146,7 +146,6 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         
         if segmentedControl.selectedSegmentIndex == 0 {
             let currentTask = inProgressItems[indexPath.row] as? Task
-//            cell.checkbox == UIImage(imageLiteralResourceName == "unchecked")
             cell.title.text = currentTask?.title
         } else if segmentedControl.selectedSegmentIndex == 1 {
             let currentTask = completedItems[indexPath.row] as? Task
@@ -155,10 +154,6 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
         
-        
-//        let task = tasks[indexPath.row]
-//        cell.title.text = task.value(forKey: "title") as? String
-//        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -100,17 +100,31 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.pushViewController(nextView, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            CoreDataManager.deleteItem(item: projects[indexPath.row])
-            
-            projects.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            CoreDataManager.deleteItem(item: projects[indexPath.row])
+//            projects.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editButton = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in
+            print("edit clicked")
+        }
+        editButton.backgroundColor = UIColor.orange
+        
+        let deleteButton = UITableViewRowAction(style: .normal, title: "Delete") { (action, indexPath) in
+            print("delete clicked")
+            CoreDataManager.deleteItem(item: self.projects[indexPath.row])
+            self.projects.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        deleteButton.backgroundColor = UIColor.red
+        
+        return [deleteButton, editButton]
+    }
+
 
     
     
