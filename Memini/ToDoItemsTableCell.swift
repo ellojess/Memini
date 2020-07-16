@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ToDoItemsTableCell: UITableViewCell {
     
@@ -30,11 +31,40 @@ class ToDoItemsTableCell: UITableViewCell {
         return button
     }()
     
+    var task: Task? = nil {
+        didSet {
+            if task != nil {
+                title.text = task?.title
+            }
+        }
+    }
+    
+    var completedTask: CompletedTask? = nil {
+        didSet {
+            if completedTask != nil {
+                title.text = completedTask?.title
+            }
+        }
+    }
+    
+    
+    var segment: Int = 0 {
+        didSet {
+            if segment == 1 {
+                checkbox.setImage(UIImage(named: "checked_checkbox"), for: .normal)
+            } else if segment == 0 {
+                checkbox.setImage(UIImage(named: "unchecked_checkbox"), for: .normal)
+            }
+        }
+    }
+    
     var project: Project2? {
         didSet {
             title.text = project?.title
         }
     }
+    
+    var parent: ToDoListViewController!
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
@@ -43,22 +73,49 @@ class ToDoItemsTableCell: UITableViewCell {
     }
     
     @objc func checkboxTapped(){
-        if self.checkbox.currentImage == UIImage(named: "unchecked_checkbox"){
-            
-            UIView.animate(withDuration: 0.3,
-                           animations: {
-                            self.checkbox.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
-            },
-                           completion: { _ in
-                            UIView.animate(withDuration: 0.3) {
-                                self.checkbox.transform = CGAffineTransform.identity
-                            }
-            })
-            
-            self.checkbox.setImage(UIImage(named: "checked_checkbox"), for: .normal)
-        }else{
-            self.checkbox.setImage(UIImage(named: "unchecked_checkbox"), for: .normal)
+        
+        UIView.animate(withDuration: 0.3,
+                       animations: {
+                        self.checkbox.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.3) {
+                            self.checkbox.transform = CGAffineTransform.identity
+                        }
+        })
+        
+        // here
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
         }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let copy = parent.completedItems.mutableCopy() as! NSMutableOrderedSet
+        
+        let entity = NSEntityDescription.entity(forEntityName: "CompletedTask", in: managedContext)!
+        let completedTask = NSManagedObject(entity: entity, insertInto: managedContext) as! CompletedTask
+        
+        completedTask.title = task?.title
+        completedTask.belongsToAProject = ((task?.belongsToAProject) != nil)
+        completedTask.dueDate = task?.dueDate
+        completedTask.status = ((task?.status) != nil)
+        
+        copy.add(completedTask)
+        parent.project.completedTasks = copy
+        
+        let inProgressCopy = parent.inProgressItems.mutableCopy() as! NSMutableOrderedSet
+        inProgressCopy.remove(task!)
+        parent.project.tasks = inProgressCopy
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError{
+            print(error)
+        }
+        
+        // to here pers
+        parent.tableView.reloadData()
     }
     
     func setUpCell() {
