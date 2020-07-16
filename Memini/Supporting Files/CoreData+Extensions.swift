@@ -47,14 +47,8 @@ extension ToDoListViewController {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: managedContext)!
-//        let task = Task(context: managedContext)
         let task = NSManagedObject(entity: entity, insertInto: managedContext)
 
-//        task.belongsToAProject = belongsToAProject
-//        task.dueDate = dueDate
-//        task.status = status
-//        task.title = title
-        
         task.setValue(title, forKey: "title")
         task.setValue(status, forKey: "status")
         task.setValue(dueDate, forKey: "dueDate")
@@ -75,7 +69,8 @@ extension ToDoListViewController {
         } catch let error as NSError{
             print(error)
         }
-        
     }
+    
+    
     
 }

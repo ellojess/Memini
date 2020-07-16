@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CompletedTask" representedClassName="CompletedTask" syncable="YES">
+        <attribute name="belongsToAProject" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="dueDate" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="completedTasks" inverseEntity="Project"/>
+    </entity>
     <entity name="Project" representedClassName="Project" syncable="YES">
         <attribute name="color" attributeType="String"/>
         <attribute name="hasManyTasks" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
+        <relationship name="completedTasks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CompletedTask" inverseName="project" inverseEntity="CompletedTask"/>
         <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Task" inverseName="project" inverseEntity="Task"/>
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES">
@@ -14,7 +22,8 @@
         <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="tasks" inverseEntity="Project"/>
     </entity>
     <elements>
-        <element name="Project" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Task" positionX="432.10546875" positionY="-111.39453125" width="128" height="118"/>
+        <element name="CompletedTask" positionX="126.6875" positionY="-265.4140625" width="128" height="28"/>
+        <element name="Project" positionX="-63" positionY="-18" width="128" height="28"/>
+        <element name="Task" positionX="428.7734375" positionY="-57.98828125" width="128" height="118"/>
     </elements>
 </model>

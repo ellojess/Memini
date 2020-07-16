@@ -21,6 +21,7 @@ class ToDoListViewController: UIViewController {
     var project: Project! {
         didSet {
             self.inProgressItems = project.tasks
+            self.completedItems = project.completedTasks
         }
     }
     
@@ -54,7 +55,7 @@ class ToDoListViewController: UIViewController {
         }
     }
     
-    var completedItems: NSOrderedSet = [] {
+    var completedItems: NSOrderedSet! {
         didSet {
             tableView.reloadData()
         }
@@ -108,6 +109,13 @@ class ToDoListViewController: UIViewController {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
+    @objc func completedTask() {
+        let nextVC = NewTaskItemViewController()
+        nextVC.delegate = self
+        nextVC.project = project
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     func setupView() {
 
         let paddedStackView = UIStackView(arrangedSubviews: [segmentedControl])
@@ -140,13 +148,18 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemsTableCell
         cell.selectionStyle = .none
         
+        
+        
+        cell.parent = self
+        
         if segmentedControl.selectedSegmentIndex == 0 {
             let currentTask = inProgressItems[indexPath.row] as? Task
-            cell.title.text = currentTask?.title
+            cell.task = currentTask
         } else if segmentedControl.selectedSegmentIndex == 1 {
-            let currentTask = completedItems[indexPath.row] as? Task
-            cell.title.text = currentTask?.title
+            let currentTask = completedItems[indexPath.row] as? CompletedTask
+            cell.completedTask = currentTask
         }
+        cell.segment = segmentedControl.selectedSegmentIndex
         return cell
     }
     
@@ -159,7 +172,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             CoreDataManager.deleteItem(item: tasks[indexPath.row])
             tasks.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  Task+CoreDataProperties.swift
+//  CompletedTask+CoreDataProperties.swift
 //  Memini
 //
 //  Created by Jessica Trinh on 7/16/20.
@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension Task {
+extension CompletedTask {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Task> {
-        return NSFetchRequest<Task>(entityName: "Task")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CompletedTask> {
+        return NSFetchRequest<CompletedTask>(entityName: "CompletedTask")
     }
 
     @NSManaged public var belongsToAProject: Bool
