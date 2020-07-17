@@ -50,6 +50,7 @@ class ToDoItemsTableCell: UITableViewCell {
     
     var segment: Int = 0 {
         didSet {
+            // determine checkbox image by which segment
             if segment == 1 {
                 checkbox.setImage(UIImage(named: "checked_checkbox"), for: .normal)
             } else if segment == 0 {
@@ -72,6 +73,8 @@ class ToDoItemsTableCell: UITableViewCell {
         setUpCell()
     }
     
+    
+    // logic to move task from one segment to another segment
     @objc func checkboxTapped(){
         
         UIView.animate(withDuration: 0.3,
@@ -84,7 +87,7 @@ class ToDoItemsTableCell: UITableViewCell {
                         }
         })
         
-        // here
+        // Implement persistence for To Do List tasks
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -114,7 +117,7 @@ class ToDoItemsTableCell: UITableViewCell {
             print(error)
         }
         
-        // to here pers
+        //
         parent.tableView.reloadData()
     }
     

@@ -43,7 +43,6 @@ class ToDoListViewController: UIViewController {
         default:
             allLists = inProgressItems
         }
-        
         tableView.reloadData()
     }
     
@@ -74,6 +73,7 @@ class ToDoListViewController: UIViewController {
         tableView.reloadData()
     }
     
+      // load tasks from persistence to table
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -147,9 +147,6 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemsTableCell
         cell.selectionStyle = .none
-        
-        
-        
         cell.parent = self
         
         if segmentedControl.selectedSegmentIndex == 0 {
@@ -166,7 +163,6 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

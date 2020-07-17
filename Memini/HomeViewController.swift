@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         tableView.reloadData()
     }
     
+    // load projects from persistence to table
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
