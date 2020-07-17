@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// used for mock data
 struct Project2 {
     var title: String
 //    let subtitle: String

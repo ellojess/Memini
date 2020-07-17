@@ -43,7 +43,6 @@ class ToDoListViewController: UIViewController {
         default:
             allLists = inProgressItems
         }
-        
         tableView.reloadData()
     }
     
@@ -148,8 +147,6 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemsTableCell
         cell.selectionStyle = .none
         
-        
-        
         cell.parent = self
         
         if segmentedControl.selectedSegmentIndex == 0 {
@@ -173,6 +170,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             CoreDataManager.deleteItem(item: tasks[indexPath.row])
             tasks.remove(at: indexPath.row)
 //            tableView.deleteRows(at: [indexPath], with: .fade)
+            
         }
     }
     
