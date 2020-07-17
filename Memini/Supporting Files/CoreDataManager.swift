@@ -22,8 +22,23 @@ class CoreDataManager {
         return context
     }()
     
-    class func deleteItem(item: NSManagedObject) {
-        managedContext.delete(item)
+    class func deleteItem(item: NSManagedObject, _ project: Project? = nil, _ completed: Bool = false) {
+        var copy: NSMutableOrderedSet = NSMutableOrderedSet()
+        
+        if project != nil {
+            if completed {
+                copy = project?.completedTasks!.mutableCopy() as! NSMutableOrderedSet
+                copy.remove(item)
+                project?.completedTasks = copy
+            } else {
+                copy = project?.tasks!.mutableCopy() as! NSMutableOrderedSet
+                copy.remove(item)
+                project?.tasks = copy
+            }
+    
+        } else {
+            managedContext.delete(item)
+        }
         saveItem()
     }
     

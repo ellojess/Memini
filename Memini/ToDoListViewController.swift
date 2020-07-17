@@ -167,8 +167,15 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            CoreDataManager.deleteItem(item: tasks[indexPath.row])
-            tasks.remove(at: indexPath.row)
+            
+            if segmentedControl.selectedSegmentIndex == 1 {
+                CoreDataManager.deleteItem(item: completedItems[indexPath.row] as! NSManagedObject, project, true)
+            } else if segmentedControl.selectedSegmentIndex == 0 {
+                CoreDataManager.deleteItem(item: inProgressItems[indexPath.row] as! NSManagedObject, project, false)
+            }
+            
+//            CoreDataManager.deleteItem(item: tasks[indexPath.row], project)
+//            tasks.remove(at: indexPath.row)
 //            tableView.deleteRows(at: [indexPath], with: .fade)
             
         }
