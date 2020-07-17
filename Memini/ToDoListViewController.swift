@@ -73,7 +73,6 @@ class ToDoListViewController: UIViewController {
         tableView.reloadData()
     }
     
-      // load tasks from persistence to table
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -147,6 +146,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemsTableCell
         cell.selectionStyle = .none
+        
         cell.parent = self
         
         if segmentedControl.selectedSegmentIndex == 0 {
@@ -164,11 +164,13 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         return 70
     }
     
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             CoreDataManager.deleteItem(item: tasks[indexPath.row])
             tasks.remove(at: indexPath.row)
 //            tableView.deleteRows(at: [indexPath], with: .fade)
+            
         }
     }
     
